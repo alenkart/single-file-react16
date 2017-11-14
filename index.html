@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Single File React@16</title>
+		<style type="text/css">
+
+			.App {
+				font-family: Arial;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			.App a {
+				display: block;
+				padding: 10px;
+				color: #fff;
+				font-size: 1.5em;
+				border-radius: 4px;
+				text-align: center;
+				background: #3498db;
+				text-decoration: none;
+				border-bottom: 4px solid #2980b9;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="app"></div>
+
+		<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+		<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+
+		<script type="text/babel">
+			
+			class App extends React.Component {
+
+				constructor() {
+					super();
+					this.state = {
+						counter: 1,
+					}
+					this.click = this.click.bind(this);
+				}
+
+				click() {
+					this.setState({counter: this.state.counter+1});
+				}
+
+			    render() {
+		          return (
+		          	<div className="App">
+		          		<h1>Single File React@16</h1>
+		          		<a onClick={this.click} href="#counter">Counter: {this.state.counter}</a>
+		        	</div>
+		          )
+		        }
+			}
+
+	    	ReactDOM.render(<App/>, document.getElementById('app'));
+		</script>
+	</body>
+</html>
